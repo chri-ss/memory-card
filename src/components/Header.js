@@ -21,7 +21,7 @@ const About = () => {
 
 const Header = () => {
   return (
-    <div className="flex justify-around items-center">
+    <div className="flex justify-around items-center border border-black h-20">
       <h1 className="flex text-3xl font-bold underline flex-auto justify-center">Hanafuda Memory</h1>
       <Nav />
     </div>
