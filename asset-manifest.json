@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/memory-card/static/css/main.0c4a8b5c.css",
-    "main.js": "/memory-card/static/js/main.665adb13.js",
+    "main.js": "/memory-card/static/js/main.fdee398b.js",
     "static/media/Hanafuda_March_Hikari.svg": "/memory-card/static/media/Hanafuda_March_Hikari.db183937d03b09be1bc38b518d6e361e.svg",
     "static/media/Hanafuda_December_Hikari.svg": "/memory-card/static/media/Hanafuda_December_Hikari.4e928e0eb54bf249c62a11af0ebdb68e.svg",
     "static/media/Hanafuda_November_Hikari.svg": "/memory-card/static/media/Hanafuda_November_Hikari.4c41fa015913d298df16b9c59b7b7211.svg",
@@ -52,10 +52,10 @@
     "static/media/Hanafuda_August_Kasu_1.svg": "/memory-card/static/media/Hanafuda_August_Kasu_1.fcbeb70e5dc02cbb482c4e09217cb630.svg",
     "index.html": "/memory-card/index.html",
     "main.0c4a8b5c.css.map": "/memory-card/static/css/main.0c4a8b5c.css.map",
-    "main.665adb13.js.map": "/memory-card/static/js/main.665adb13.js.map"
+    "main.fdee398b.js.map": "/memory-card/static/js/main.fdee398b.js.map"
   },
   "entrypoints": [
     "static/css/main.0c4a8b5c.css",
-    "static/js/main.665adb13.js"
+    "static/js/main.fdee398b.js"
   ]
 }
