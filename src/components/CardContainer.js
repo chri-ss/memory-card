@@ -1,8 +1,8 @@
 const CardContainer = ({ allCards, markSeen }) => {
   const cardsToShow = allCards.filter((card, i) => i > 16);
   return (
-    <div className="flex w-full h-full justify-center items-center">
-      <ul className="grid h-5/6 w-5/6 border border-black grid-cols-4 grid-rows-4 gap-2 justify-items-center">
+    <div className="flex w-full h-5/6 justify-center items-center">
+      <ul className="grid h-5/6 w-3/6 border border-black grid-cols-4 grid-rows-4 gap-2 justify-items-center">
         {cardsToShow.map((card) => (
           <li key={card.id}>
             <img

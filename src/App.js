@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
+import ScoreBoard from "./components/ScoreBoard";
 import cards from "./images/cardLoader";
+
 function App() {
   const [allCards, setAllCards] = useState(cards);
-  const [round, setRound] = useState(0);
+  const [score, setScore] = useState(0);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
@@ -30,8 +32,17 @@ function App() {
         }
       })
     );
-    // shuffleCards();
-    setRound(round + 1);
+    const currentCard = allCards.find((card) => card.id === e.target.id);
+    if (currentCard.seen === true) {
+      setScore(0);
+      setAllCards(
+        allCards.map((card) => {
+          return { ...card, seen: false };
+        })
+      );
+    } else {
+      setScore(score + 1);
+    }
     console.log(allCards);
   };
 
@@ -43,16 +54,14 @@ function App() {
 
   useEffect(() => {
     shuffleCards();
-  }, [round]);
+    console.log(score);
+  }, [score]);
 
   return (
-    <div className="flex flex-col App h-screen">
+    <div className="flex flex-col App h-screen border-box">
       <Header />
-      <CardContainer
-        allCards={allCards}
-        // shuffleCards={shuffleCards}
-        markSeen={markSeen}
-      />
+      <CardContainer allCards={allCards} markSeen={markSeen} />
+      <ScoreBoard score={score} />
     </div>
   );
 }
