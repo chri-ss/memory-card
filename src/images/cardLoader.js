@@ -241,16 +241,6 @@ const cards = [
     type: "kasu",
     month: "march",
   },
-  { seen: false, id: uniqid(), image: May_Kasu_1, type: "kasu", month: "may" },
-  { seen: false, id: uniqid(), image: May_Kasu_2, type: "kasu", month: "may" },
-  { seen: false, id: uniqid(), image: May_Tane, type: "tane", month: "may" },
-  {
-    seen: false,
-    id: uniqid(),
-    image: May_Tanzaku,
-    type: "tanzaku",
-    month: "may",
-  },
   {
     seen: false,
     id: uniqid(),

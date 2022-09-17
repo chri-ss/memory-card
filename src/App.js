@@ -7,6 +7,7 @@ import cards from "./images/cardLoader";
 function App() {
   const [allCards, setAllCards] = useState(cards);
   const [score, setScore] = useState(0);
+  const [prevScore, setPrevScore] = useState(0);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
@@ -34,6 +35,7 @@ function App() {
     );
     const currentCard = allCards.find((card) => card.id === e.target.id);
     if (currentCard.seen === true) {
+      setPrevScore(score > prevScore ? score : prevScore);
       setScore(0);
       setAllCards(
         allCards.map((card) => {
@@ -41,9 +43,25 @@ function App() {
         })
       );
     } else {
-      setScore(score + 1);
+      switch (currentCard.type) {
+        case "tanzaku": {
+          setScore(score + 5);
+          break;
+        }
+        case "tane": {
+          setScore(score + 10);
+          break;
+        }
+        case "hikari": {
+          setScore(score + 20);
+          break;
+        }
+        default: {
+          setScore(score + 1); //kasu
+          break;
+        }
+      }
     }
-    console.log(allCards);
   };
 
   const shuffleCards = () => {
@@ -61,7 +79,7 @@ function App() {
     <div className="flex flex-col App h-screen border-box">
       <Header />
       <CardContainer allCards={allCards} markSeen={markSeen} />
-      <ScoreBoard score={score} />
+      <ScoreBoard score={score} prevScore={prevScore} />
     </div>
   );
 }
