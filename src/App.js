@@ -3,11 +3,14 @@ import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
 import ScoreBoard from "./components/ScoreBoard";
 import cards from "./images/cardLoader";
+import yakus from "./yakus";
 
 function App() {
   const [allCards, setAllCards] = useState(cards);
   const [score, setScore] = useState(0);
   const [prevScore, setPrevScore] = useState(0);
+  const [allYakus, setYakus] = useState(yakus);
+  const [round, setRound] = useState(1);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
@@ -42,6 +45,7 @@ function App() {
           return { ...card, seen: false };
         })
       );
+      setRound(round + 1);
     } else {
       switch (currentCard.type) {
         case "tanzaku": {
@@ -62,6 +66,46 @@ function App() {
         }
       }
     }
+    updateMonths(currentCard);
+  };
+
+  const updateMonths = (card) => {
+    const month = card.month;
+    setYakus(
+      allYakus.map((yaku) => {
+        if (yaku.hasOwnProperty(month)) {
+          return { ...yaku, [`${month}`]: yaku[`${month}`] + 1 };
+        } else {
+          return yaku;
+        }
+      })
+    );
+  };
+
+  const checkMonths = () => {
+    const months = allYakus[0];
+    for (let month in months) {
+      if (months[month] === 4) {
+        setScore(score + 4);
+        setYakus(
+          allYakus.map((yaku) => {
+            if (yaku.hasOwnProperty(month)) {
+              return { ...yaku, [`${month}`]: 0 };
+            } else {
+              return yaku;
+            }
+          })
+        );
+      }
+    }
+  };
+
+  const clearYakus = () => {
+    setYakus(
+      allYakus.map((yaku, i) => {
+        return yakus[i];
+      })
+    );
   };
 
   const shuffleCards = () => {
@@ -72,8 +116,13 @@ function App() {
 
   useEffect(() => {
     shuffleCards();
-    console.log(score);
+    checkMonths();
+    console.log(allYakus);
   }, [score]);
+
+  useEffect(() => {
+    clearYakus();
+  }, [round]);
 
   return (
     <div className="flex flex-col App h-screen border-box">
