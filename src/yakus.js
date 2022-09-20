@@ -13,6 +13,18 @@ const yakus = [
     november: 0,
     december: 0,
   },
+  {
+    kasu: 0,
+  },
+  {
+    tankazu: 0,
+  },
+  {
+    tane: 0,
+  },
+  {
+    hikari: 0,
+  },
 ];
 
 export default yakus;

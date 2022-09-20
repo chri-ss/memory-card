@@ -10,6 +10,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [prevScore, setPrevScore] = useState(0);
   const [allYakus, setYakus] = useState(yakus);
+  const [turn, setTurn] = useState(0);
   const [round, setRound] = useState(1);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
@@ -37,6 +38,7 @@ function App() {
       })
     );
     const currentCard = allCards.find((card) => card.id === e.target.id);
+    updateYakus(currentCard);
     if (currentCard.seen === true) {
       setPrevScore(score > prevScore ? score : prevScore);
       setScore(0);
@@ -66,15 +68,19 @@ function App() {
         }
       }
     }
-    updateMonths(currentCard);
+
+    setTurn(turn + 1);
   };
 
-  const updateMonths = (card) => {
+  const updateYakus = (card) => {
     const month = card.month;
     setYakus(
       allYakus.map((yaku) => {
         if (yaku.hasOwnProperty(month)) {
           return { ...yaku, [`${month}`]: yaku[`${month}`] + 1 };
+        }
+        if (card.type === "kasu" && yaku.hasOwnProperty("kasu")) {
+          return { ...yaku, kasu: allYakus[1].kasu + 1 };
         } else {
           return yaku;
         }
@@ -100,6 +106,12 @@ function App() {
     }
   };
 
+  const checkKasuTypes = (card) => {
+    if (allYakus[1].kasu >= 10) {
+      setScore(score + 1);
+    }
+  };
+
   const clearYakus = () => {
     setYakus(
       allYakus.map((yaku, i) => {
@@ -118,11 +130,19 @@ function App() {
     shuffleCards();
     checkMonths();
     console.log(allYakus);
+    console.log(round);
   }, [score]);
 
   useEffect(() => {
+    checkKasuTypes();
+  }, [allYakus[1].kasu]);
+
+  useEffect(() => {
     clearYakus();
+    setScore(0);
   }, [round]);
+
+ 
 
   return (
     <div className="flex flex-col App h-screen border-box">
