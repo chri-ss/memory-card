@@ -15,14 +15,8 @@ const yakus = [
   },
   {
     plants: 0,
-  },
-  {
     ribbons: 0,
-  },
-  {
     animals: 0,
-  },
-  {
     specials: 0,
   },
 ];

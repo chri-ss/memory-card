@@ -81,6 +81,8 @@ function App() {
         }
         if (card.type === "kasu" && yaku.hasOwnProperty("plants")) {
           return { ...yaku, plants: allYakus[1].plants + 1 };
+        } else if (card.type === "tanzaku" && yaku.hasOwnProperty("ribbons")) {
+          return { ...yaku, ribbons: allYakus[1].ribbons + 1 };
         } else {
           return yaku;
         }
@@ -112,6 +114,12 @@ function App() {
     }
   };
 
+  const checkRibbons = (card) => {
+    if (allYakus[1].ribbons >= 5) {
+      setScore(score + 1);
+    }
+  };
+
   const clearYakus = () => {
     setYakus(
       allYakus.map((yaku, i) => {
@@ -136,6 +144,10 @@ function App() {
   useEffect(() => {
     checkPlants();
   }, [allYakus[1].plants]);
+
+  useEffect(() => {
+    checkRibbons();
+  }, [allYakus[1].ribbons]);
 
   useEffect(() => {
     clearYakus();
