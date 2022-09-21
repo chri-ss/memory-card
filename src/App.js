@@ -79,8 +79,8 @@ function App() {
         if (yaku.hasOwnProperty(month)) {
           return { ...yaku, [`${month}`]: yaku[`${month}`] + 1 };
         }
-        if (card.type === "kasu" && yaku.hasOwnProperty("kasu")) {
-          return { ...yaku, kasu: allYakus[1].kasu + 1 };
+        if (card.type === "kasu" && yaku.hasOwnProperty("plants")) {
+          return { ...yaku, plants: allYakus[1].plants + 1 };
         } else {
           return yaku;
         }
@@ -106,8 +106,8 @@ function App() {
     }
   };
 
-  const checkKasuTypes = (card) => {
-    if (allYakus[1].kasu >= 10) {
+  const checkPlants = (card) => {
+    if (allYakus[1].plants >= 10) {
       setScore(score + 1);
     }
   };
@@ -134,15 +134,13 @@ function App() {
   }, [score]);
 
   useEffect(() => {
-    checkKasuTypes();
-  }, [allYakus[1].kasu]);
+    checkPlants();
+  }, [allYakus[1].plants]);
 
   useEffect(() => {
     clearYakus();
     setScore(0);
   }, [round]);
-
- 
 
   return (
     <div className="flex flex-col App h-screen border-box">

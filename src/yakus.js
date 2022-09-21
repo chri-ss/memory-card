@@ -14,16 +14,16 @@ const yakus = [
     december: 0,
   },
   {
-    kasu: 0,
+    plants: 0,
   },
   {
-    tankazu: 0,
+    ribbons: 0,
   },
   {
-    tane: 0,
+    animals: 0,
   },
   {
-    hikari: 0,
+    specials: 0,
   },
 ];
 
