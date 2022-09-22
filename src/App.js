@@ -85,6 +85,16 @@ function App() {
           return { ...yaku, ribbons: allYakus[1].ribbons + 1 };
         } else if (card.type === "tane" && yaku.hasOwnProperty("animals")) {
           return { ...yaku, animals: allYakus[1].animals + 1 };
+        } else if (card.type === "hikari") {
+          if (card.subtype === "rainman") {
+            return {
+              ...yaku,
+              rainman: true,
+              specials: allYakus[1].specials + 1,
+            };
+          } else {
+            return { ...yaku, specials: allYakus[1].specials + 1 };
+          }
         } else {
           return yaku;
         }
@@ -128,6 +138,18 @@ function App() {
     }
   };
 
+  const checkSpecials = () => {
+    if (allYakus[1].specials === 3 && allYakus[1].rainman === false) {
+      setScore(score + 6);
+    } else if (allYakus[1].specials === 4 && allYakus[1].rainman === false) {
+      setScore(score + 8);
+    } else if (allYakus[1].specials === 4 && allYakus[1].rainman === true) {
+      setScore(score + 7);
+    } else if (allYakus[1].specials === 5) {
+      setScore(score + 15);
+    }
+  };
+
   const clearYakus = () => {
     setYakus(
       allYakus.map((yaku, i) => {
@@ -160,6 +182,10 @@ function App() {
   useEffect(() => {
     checkAnimals();
   }, [allYakus[1].animals]);
+
+  useEffect(() => {
+    checkSpecials();
+  }, [allYakus[1].specials]);
 
   useEffect(() => {
     clearYakus();

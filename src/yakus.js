@@ -18,6 +18,7 @@ const yakus = [
     ribbons: 0,
     animals: 0,
     specials: 0,
+    rainman: false,
   },
 ];
 

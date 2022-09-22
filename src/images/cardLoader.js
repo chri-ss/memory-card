@@ -298,6 +298,7 @@ const cards = [
     id: uniqid(),
     image: November_Hikari,
     type: "hikari",
+    subtype: "rainman",
     month: "november",
   },
   {
