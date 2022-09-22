@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
 import ScoreBoard from "./components/ScoreBoard";
+import AboutModal from "./components/AboutModal";
 import cards from "./images/cardLoader";
 import yakus from "./yakus";
 
@@ -162,6 +163,18 @@ function App() {
     const tempCards = [...allCards];
     shuffle(tempCards);
     setAllCards(tempCards);
+
+    /*following flag and loop are to guard against being served a board of 
+    all cards that have been previously seen*/
+    let allSeen = true;
+    for (let i = 0; i < 16; i++) {
+      if (allCards[i].seen === false) {
+        allSeen = false;
+      }
+    }
+    if (allSeen === true) {
+      shuffleCards();
+    }
   };
 
   useEffect(() => {
@@ -197,6 +210,7 @@ function App() {
       <Header />
       <CardContainer allCards={allCards} markSeen={markSeen} />
       <ScoreBoard score={score} prevScore={prevScore} />
+      <AboutModal />
     </div>
   );
 }
