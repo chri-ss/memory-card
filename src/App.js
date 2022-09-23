@@ -14,6 +14,8 @@ function App() {
   const [turn, setTurn] = useState(0);
   const [round, setRound] = useState(1);
 
+  const [about, setAbout] = useState(false);
+
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
     let curr = arr.length - 1;
@@ -177,6 +179,14 @@ function App() {
     }
   };
 
+  const toggleAbout = () => {
+    if (about === false) {
+      setAbout(true);
+    } else {
+      setAbout(false);
+    }
+  };
+
   useEffect(() => {
     shuffleCards();
     checkMonths();
@@ -207,10 +217,10 @@ function App() {
 
   return (
     <div className="flex flex-col App h-screen border-box">
-      <Header />
+      <Header toggleAbout={toggleAbout} />
       <CardContainer allCards={allCards} markSeen={markSeen} />
       <ScoreBoard score={score} prevScore={prevScore} />
-      <AboutModal />
+      <AboutModal about={about} toggleAbout={toggleAbout} />
     </div>
   );
 }
