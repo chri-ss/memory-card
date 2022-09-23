@@ -1,28 +1,31 @@
-const Nav = () => {
+const Header = ({ toggleAbout }) => {
+  const About = () => {
+    return (
+      <li>
+        <button onClick={toggleAbout}>About</button>
+      </li>
+    );
+  };
+  const Rules = () => {
+    return (
+      <li>
+        <button>Rules</button>
+      </li>
+    );
+  };
+  const Nav = () => {
+    return (
+      <ul className="flex justify-around items-center flex-auto">
+        <Rules />
+        <About />
+      </ul>
+    );
+  };
   return (
-    <ul className="flex justify-around items-center flex-auto">
-      <Rules />
-      <About />
-    </ul>
-  );
-};
-
-const Rules = () => {
-  return (
-    <li>
-      <a href="">Rules</a>
-    </li>
-  );
-};
-
-const About = () => {
-  return <li><a href="">About</a></li>;
-};
-
-const Header = () => {
-  return (
-    <div className="flex justify-around items-center border border-black h-20">
-      <h1 className="flex text-3xl font-bold underline flex-auto justify-center">Hanafuda Memory</h1>
+    <div className="flex justify-around items-center border border-black h-20 bg-slate-300">
+      <h1 className="flex text-3xl font-bold underline flex-auto justify-center">
+        Hanafuda Memory
+      </h1>
       <Nav />
     </div>
   );

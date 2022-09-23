@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
 import ScoreBoard from "./components/ScoreBoard";
+import AboutModal from "./components/AboutModal";
 import cards from "./images/cardLoader";
 import yakus from "./yakus";
 
@@ -12,6 +13,8 @@ function App() {
   const [allYakus, setYakus] = useState(yakus);
   const [turn, setTurn] = useState(0);
   const [round, setRound] = useState(1);
+
+  const [about, setAbout] = useState(false);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
@@ -162,6 +165,26 @@ function App() {
     const tempCards = [...allCards];
     shuffle(tempCards);
     setAllCards(tempCards);
+
+    /*following flag and loop are to guard against being served a board of 
+    all cards that have been previously seen*/
+    let allSeen = true;
+    for (let i = 0; i < 16; i++) {
+      if (allCards[i].seen === false) {
+        allSeen = false;
+      }
+    }
+    if (allSeen === true) {
+      shuffleCards();
+    }
+  };
+
+  const toggleAbout = () => {
+    if (about === false) {
+      setAbout(true);
+    } else {
+      setAbout(false);
+    }
   };
 
   useEffect(() => {
@@ -194,9 +217,10 @@ function App() {
 
   return (
     <div className="flex flex-col App h-screen border-box">
-      <Header />
+      <Header toggleAbout={toggleAbout} />
       <CardContainer allCards={allCards} markSeen={markSeen} />
       <ScoreBoard score={score} prevScore={prevScore} />
+      <AboutModal about={about} toggleAbout={toggleAbout} />
     </div>
   );
 }
