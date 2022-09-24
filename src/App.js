@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
 import ScoreBoard from "./components/ScoreBoard";
-import AboutModal from "./components/AboutModal";
+import Modal from "./components/Modal";
 import cards from "./images/cardLoader";
 import yakus from "./yakus";
 
@@ -15,6 +15,7 @@ function App() {
   const [round, setRound] = useState(1);
 
   const [about, setAbout] = useState(false);
+  const [rules, setRules] = useState(false);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
@@ -187,6 +188,14 @@ function App() {
     }
   };
 
+  const toggleRules = () => {
+    if (rules === false) {
+      setRules(true);
+    } else {
+      setRules(false);
+    }
+  };
+
   useEffect(() => {
     shuffleCards();
     checkMonths();
@@ -217,10 +226,15 @@ function App() {
 
   return (
     <div className="flex flex-col App h-screen border-box">
-      <Header toggleAbout={toggleAbout} />
+      <Header toggleAbout={toggleAbout} toggleRules={toggleRules} />
       <CardContainer allCards={allCards} markSeen={markSeen} />
       <ScoreBoard score={score} prevScore={prevScore} />
-      <AboutModal about={about} toggleAbout={toggleAbout} />
+      <Modal
+        about={about}
+        rules={rules}
+        toggleAbout={toggleAbout}
+        toggleRules={toggleRules}
+      />
     </div>
   );
 }

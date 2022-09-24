@@ -1,4 +1,4 @@
-const Header = ({ toggleAbout }) => {
+const Header = ({ toggleAbout, toggleRules }) => {
   const About = () => {
     return (
       <li>
@@ -9,15 +9,15 @@ const Header = ({ toggleAbout }) => {
   const Rules = () => {
     return (
       <li>
-        <button>Rules</button>
+        <button onClick={toggleRules}>Rules</button>
       </li>
     );
   };
   const Nav = () => {
     return (
       <ul className="flex justify-around items-center flex-auto">
-        <Rules />
         <About />
+        <Rules />
       </ul>
     );
   };
