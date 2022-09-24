@@ -13,6 +13,7 @@ function App() {
   const [allYakus, setYakus] = useState(yakus);
   const [turn, setTurn] = useState(0);
   const [round, setRound] = useState(1);
+  const [count, setCount] = useState(0);
 
   const [about, setAbout] = useState(false);
   const [rules, setRules] = useState(false);
@@ -165,18 +166,20 @@ function App() {
   const shuffleCards = () => {
     const tempCards = [...allCards];
     shuffle(tempCards);
-    setAllCards(tempCards);
 
     /*following flag and loop are to guard against being served a board of 
     all cards that have been previously seen*/
     let allSeen = true;
     for (let i = 0; i < 16; i++) {
-      if (allCards[i].seen === false) {
+      if (tempCards[i].seen === false) {
         allSeen = false;
       }
     }
+
     if (allSeen === true) {
       shuffleCards();
+    } else {
+      setAllCards(tempCards);
     }
   };
 
@@ -199,8 +202,9 @@ function App() {
   useEffect(() => {
     shuffleCards();
     checkMonths();
-    console.log(allYakus);
-    console.log(round);
+    // console.log(allYakus);
+    // console.log(round);
+    console.log(allCards);
   }, [score]);
 
   useEffect(() => {
