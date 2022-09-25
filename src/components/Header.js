@@ -2,14 +2,14 @@ const Header = ({ toggleAbout, toggleRules }) => {
   const About = () => {
     return (
       <li>
-        <button onClick={toggleAbout}>About</button>
+        <button className="hover:text-indigo-700" onClick={toggleAbout}>About</button>
       </li>
     );
   };
   const Rules = () => {
     return (
       <li >
-        <button onClick={toggleRules}>How to Play</button>
+        <button className="hover:text-indigo-700" onClick={toggleRules}>How to Play</button>
       </li>
     );
   };
