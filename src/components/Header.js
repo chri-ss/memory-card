@@ -9,7 +9,7 @@ const Header = ({ toggleAbout, toggleRules }) => {
   const Rules = () => {
     return (
       <li>
-        <button onClick={toggleRules}>Rules</button>
+        <button onClick={toggleRules}>How to Play</button>
       </li>
     );
   };
