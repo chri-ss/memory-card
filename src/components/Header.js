@@ -23,7 +23,7 @@ const Header = ({ toggleAbout, toggleRules }) => {
   };
   return (
     <div className="flex justify-around items-center border border-black h-20 bg-slate-300">
-      <h1 className="flex text-3xl font-bold underline flex-auto justify-center">
+      <h1 className="flex text-3xl font-bold underline flex-auto justify-center text-center">
         Hanafuda Memory
       </h1>
       <Nav />

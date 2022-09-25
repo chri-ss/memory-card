@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Memory Card
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A memory card game based on the japanese card game koi-koi.
 
-## Available Scripts
+### Built with:
 
-In the project directory, you can run:
+ - React hooks
+ - Tailwind CSS
+ - HTML5
 
-### `npm start`
+### To install:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ - Clone the repo
+ - run ```npm install``` inside the directory
+ - run ```npm run start``` for live preview or
+ - run ```pm run build``` to make a production build
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+**live preview:** https://chri-ss.github.io/memory-card/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Play:
 
-### `npm run build`
+Click cards to score points. Don't click the same card twice! Different card types award different scores and combos can boost your score. See below for more.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Scoring
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Plant (kasu) cards - 1 point
+- Ribbon (tanzaku) cards - 5 points
+- Animal<sup>*</sup> (tane) cards - 10 points
+- Special<sup>*</sup> (hikari, 'bright') cards - 20 points
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<sub>*Also included with 10 point cards are the '8-plank bridge' and 'sake cup' cards, despite not being animals</sub>  
+<sub>*The 20 point cards include the [Ono no Michikaze](https://en.wikipedia.org/wiki/Ono_no_Michikaze "Ono no Michikaze") (I've called him the Rainman for short) -  the only card representing a human. Can modify combos.
+</sub>
 
-### `npm run eject`
+### Combos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 10 plants - 1 extra point + 1 additional point for each extra plant
+- 5 ribbons - 1 extra point + 1 additional point for each extra ribbon
+- 5 animals - 1 extra point + 1 additional point for each extra animal
+- 3 specials (without the rainman) - 6 extra points
+- 4 specials (with the rainman) - 7 extra points
+- 4 specials (without the rainman) - 8 extra points
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## To Add:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - More combos - 3 red/3 blue ribbons, 'boar, deer, butterfly', sake cup combos from [koi-koi](https://en.wikipedia.org/wiki/Koi-Koi#Yaku_listing "koi-koi")
+ 
+All images: https://commons.wikimedia.org/wiki/Category:SVG_Hanafuda
