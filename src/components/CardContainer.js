@@ -4,9 +4,9 @@ const CardContainer = ({ allCards, markSeen }) => {
     <div className="flex w-full h-5/6 justify-center items-center bg-zinc-200 border border-black">
       <ul className="grid h-5/6 w-3/6 p-2 bg-slate-300 border border-black grid-cols-4 grid-rows-4 gap-2 justify-items-center align-content-center rounded-xl">
         {cardsToShow.map((card) => (
-          <li key={card.id}>
+          <li className="h-full w-full" key={card.id}>
             <img
-              className="h-full hover:cursor-pointer"
+              className="h-full w-full hover:cursor-pointer"
               alt="hanafuda-card"
               src={card.image}
               id={card.id}

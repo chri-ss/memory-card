@@ -19,11 +19,10 @@ function App() {
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
-    let curr = arr.length - 1;
+    let curr = arr.length;
     while (curr !== 0) {
       let swap = Math.floor(Math.random() * curr);
       curr--;
-
       let temp = arr[curr];
       arr[curr] = arr[swap];
       arr[swap] = temp;
@@ -165,18 +164,20 @@ function App() {
   const shuffleCards = () => {
     const tempCards = [...allCards];
     shuffle(tempCards);
-    setAllCards(tempCards);
 
     /*following flag and loop are to guard against being served a board of 
     all cards that have been previously seen*/
     let allSeen = true;
     for (let i = 0; i < 16; i++) {
-      if (allCards[i].seen === false) {
+      if (tempCards[i].seen === false) {
         allSeen = false;
       }
     }
+
     if (allSeen === true) {
       shuffleCards();
+    } else {
+      setAllCards(tempCards);
     }
   };
 
@@ -197,11 +198,14 @@ function App() {
   };
 
   useEffect(() => {
-    shuffleCards();
+    // shuffleCards();
     checkMonths();
-    console.log(allYakus);
-    console.log(round);
+    console.log(allCards);
   }, [score]);
+
+  useEffect(() => {
+    shuffleCards();
+  }, [turn]);
 
   useEffect(() => {
     checkPlants();
@@ -222,6 +226,7 @@ function App() {
   useEffect(() => {
     clearYakus();
     setScore(0);
+    shuffleCards();
   }, [round]);
 
   return (
