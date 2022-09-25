@@ -8,14 +8,14 @@ const Header = ({ toggleAbout, toggleRules }) => {
   };
   const Rules = () => {
     return (
-      <li>
+      <li >
         <button onClick={toggleRules}>How to Play</button>
       </li>
     );
   };
   const Nav = () => {
     return (
-      <ul className="flex justify-around items-center flex-auto">
+      <ul className="flex justify-around items-center flex-auto text-xs lg:text-lg" >
         <About />
         <Rules />
       </ul>
@@ -23,7 +23,7 @@ const Header = ({ toggleAbout, toggleRules }) => {
   };
   return (
     <div className="flex justify-around items-center border border-black h-20 bg-slate-300">
-      <h1 className="flex text-3xl font-bold underline flex-auto justify-center text-center">
+      <h1 className="flex text-lg lg:text-3xl font-bold underline flex-auto justify-center text-center">
         Hanafuda Memory
       </h1>
       <Nav />
