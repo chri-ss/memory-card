@@ -6,7 +6,7 @@ const CardContainer = ({ allCards, markSeen }) => {
         {cardsToShow.map((card) => (
           <li className="h-full w-full" key={card.id}>
             <img
-              className={card.seen ? "h-full w-full opacity-50 hover:cursor-pointer" : "h-full w-full hover:cursor-pointer"}
+              className="h-full w-full hover:cursor-pointer"
               alt="hanafuda-card"
               src={card.image}
               id={card.id}
