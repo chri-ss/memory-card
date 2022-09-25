@@ -13,18 +13,16 @@ function App() {
   const [allYakus, setYakus] = useState(yakus);
   const [turn, setTurn] = useState(0);
   const [round, setRound] = useState(1);
-  const [count, setCount] = useState(0);
 
   const [about, setAbout] = useState(false);
   const [rules, setRules] = useState(false);
 
   //mutable, make sure to copy arr in state and reassign afterwards.
   const shuffle = (arr) => {
-    let curr = arr.length - 1;
+    let curr = arr.length;
     while (curr !== 0) {
       let swap = Math.floor(Math.random() * curr);
       curr--;
-
       let temp = arr[curr];
       arr[curr] = arr[swap];
       arr[swap] = temp;
@@ -200,12 +198,14 @@ function App() {
   };
 
   useEffect(() => {
-    shuffleCards();
+    // shuffleCards();
     checkMonths();
-    // console.log(allYakus);
-    // console.log(round);
     console.log(allCards);
   }, [score]);
+
+  useEffect(() => {
+    shuffleCards();
+  }, [turn]);
 
   useEffect(() => {
     checkPlants();
@@ -226,6 +226,7 @@ function App() {
   useEffect(() => {
     clearYakus();
     setScore(0);
+    shuffleCards();
   }, [round]);
 
   return (
