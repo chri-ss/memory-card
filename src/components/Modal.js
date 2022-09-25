@@ -14,7 +14,7 @@ const Modal = ({ about, rules, toggleAbout, toggleRules }) => {
       <div className=" w-full h-full opacity-50 bg-gray-300"></div>
 
       {about === true ? (
-        <div className="sm:w-4/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md">
+        <div className="w-5/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md">
           <div
             className="flex cursor-pointer text-5xl justify-end hover:text-indigo-600"
             onClick={about === true ? toggleAbout : toggleRules}
@@ -53,7 +53,7 @@ const Modal = ({ about, rules, toggleAbout, toggleRules }) => {
           </a>
         </div>
       ) : (
-        <div className=" flex sm:w-4/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md flex-col items-center">
+        <div className=" flex w-5/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md flex-col items-center">
           <div
             className="flex w-full cursor-pointer text-5xl justify-end hover:text-indigo-600"
             onClick={about === true ? toggleAbout : toggleRules}
