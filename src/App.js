@@ -230,16 +230,16 @@ function App() {
   }, [round]);
 
   return (
-    <div className="flex flex-col App h-screen border-box">
-      <Header toggleAbout={toggleAbout} toggleRules={toggleRules} />
-      <CardContainer allCards={allCards} markSeen={markSeen} />
-      <ScoreBoard score={score} prevScore={prevScore} />
+    <div className="flex flex-col App h-screen w-screen border-box">
       <Modal
         about={about}
         rules={rules}
         toggleAbout={toggleAbout}
         toggleRules={toggleRules}
       />
+      <Header toggleAbout={toggleAbout} toggleRules={toggleRules} />
+      <CardContainer allCards={allCards} markSeen={markSeen} />
+      <ScoreBoard score={score} prevScore={prevScore} />
     </div>
   );
 }

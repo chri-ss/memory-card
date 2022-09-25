@@ -12,14 +12,15 @@ const Modal = ({ about, rules, toggleAbout, toggleRules }) => {
   return about === true || rules === true ? (
     <div className=" flex w-screen h-screen absolute justify-center items-center text-2xl text-center flex-col">
       <div className=" w-full h-full opacity-50 bg-gray-300"></div>
-      <div
-        className="absolute top-28 right-1/4 cursor-pointer text-5xl"
-        onClick={about === true ? toggleAbout : toggleRules}
-      >
-        ✖
-      </div>
+
       {about === true ? (
-        <div className="w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md">
+        <div className="sm:w-4/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md">
+          <div
+            className="flex cursor-pointer text-5xl justify-end hover:text-indigo-600"
+            onClick={about === true ? toggleAbout : toggleRules}
+          >
+            ✖
+          </div>
           <br></br>
           <p>
             Hanafuda (花札) are a style of Japanese playing cards. They are
@@ -53,6 +54,12 @@ const Modal = ({ about, rules, toggleAbout, toggleRules }) => {
         </div>
       ) : (
         <div className=" flex sm:w-4/6 lg:w-2/6 h-4/6 p-6 z-100 bg-white absolute overflow-auto border border-black rounded-md flex-col items-center">
+          <div
+            className="flex w-full cursor-pointer text-5xl justify-end hover:text-indigo-600"
+            onClick={about === true ? toggleAbout : toggleRules}
+          >
+            ✖
+          </div>
           <h2 className="flex text-4xl justify-center underline">Objective</h2>
           <br></br>
           <p>
